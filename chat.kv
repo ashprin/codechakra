@@ -1,0 +1,55 @@
+<ChatWindow>:
+    GridLayout:
+        cols:1
+        size:root.width,root.height
+
+        ScrollView:
+            do_scroll_x:False
+            do_scroll_y:True
+
+            canvas.before:
+                Color:
+                    rgba:1,1,1,1
+
+                Rectangle:
+                    source:'gokui.jpg'
+                    pos:self.pos
+                    size:self.size
+
+            GridLayout:
+                id:flayout
+                orientation:'vertical'
+                cols:1
+                spacing:10
+                padding:10
+                row_default_height:20
+                size_hint_y:None
+                height:self.minimum_height
+
+        GridLayout:
+            cols:3
+            size_hint:0.1,0.1
+
+            Button:
+                id:send
+                text:'left'
+                on_press:root.btn_left(flayout,text_input)
+                background_color:(1.0,0.0,0.0,1)
+
+            ScrollView:
+                do_scroll_y:True
+                do_scroll_x:True
+
+                TextInput:
+                    id:text_input
+                    multiline:True
+                    size_hint_y:None
+                    font_name:'Arial'
+                    font_size:12
+
+            Button:
+                id:send
+                text:'right'
+                on_press:root.btn_right(flayout,text_input)
+
+
